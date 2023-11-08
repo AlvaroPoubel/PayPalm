@@ -3,7 +3,7 @@
 - [Instalação do PostgreSQL](#instalação-do-postgresql)
 - [Criação do Banco de Dados](#criação-do-banco-de-dados)
 - [Populando o Banco de Dados](#populando-o-banco-de-dados)
-- [Consultas de Análise](#Querys-de-análise)
+- [Querys de Análise](#Querys-de-análise)
 - [Integrantes do Projeto](#integrantes)
 
 # Guia de Instalação e Utilização do Banco de Dados
