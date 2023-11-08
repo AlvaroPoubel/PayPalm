@@ -37,9 +37,9 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
 
 6. **Seleção do Banco de Dados**:
    - Selecione o banco de dados recém-criado clicando com o botão direito do mouse no banco:
-   - ![image](https://github.com/Hexdien/PeyPey/assets/130430133/271d4a21-75cb-433b-9f83-2a4e1b9a3e78)
+   - ![image](https://github.com/Hexdien/PeyPey/assets/130430133/66d2ecf4-5703-4821-8ce8-432cb88c1a44)
    - Em seguida clique em `Query Tool`
-   - ![image](https://github.com/Hexdien/PeyPey/assets/130430133/709a79af-3359-450d-86de-0eea62e097d9)
+   - ![image](https://github.com/Hexdien/PeyPey/assets/130430133/4abaf125-10ad-4977-98d2-2463707fab87)
 
 
 
