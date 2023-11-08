@@ -1,3 +1,11 @@
+# Índice
+
+- [Instalação do PostgreSQL](#instalação-do-postgresql)
+- [Criação do Banco de Dados](#criação-do-banco-de-dados)
+- [Populando o Banco de Dados](#populando-o-banco-de-dados)
+- [Consultas de Análise](#consultas-de-análise)
+- [Integrantes do Projeto](#integrantes)
+
 # Guia de Instalação e Utilização do Banco de Dados
 
 Este guia fornece instruções detalhadas sobre como instalar o Sistema de Gerenciamento de Banco de Dados (SGBD) PostgreSQL, criar o banco de dados, popular com dados iniciais e realizar algumas consultas de análise no banco de dados. Certifique-se de seguir as etapas na ordem indicada.
@@ -35,7 +43,7 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
 
 
 
-## Populando Banco de Dados
+## Populando o Banco de Dados
 
 7. **Execução dos Arquivos SQL**:
    - Utilize o utilitário `psql` ou a interface gráfica (pgAdmin) para executar os arquivos SQL que contêm as definições das tabelas e dados de exemplo. Certifique-se de manter a ordem dos arquivos para evitar erros de dependência.
@@ -71,3 +79,13 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
     - Utilize essas consultas como ponto de partida para a exploração e análise mais aprofundada do banco de dados.
 
 Este guia fornece os passos essenciais para instalar o PostgreSQL, criar o banco de dados, popular com dados de exemplo e realizar consultas iniciais.
+
+
+## Integrantes
+[Hexdien](https://github.com/Hexdien)
+
+[Álvaro Pubel](https://github.com/AlvaroPoubel)
+
+[Tauan Dias](https://github.com/tauan-dias)
+
+[Thayna Seabra](https://github.com/Thaynaseabra)
