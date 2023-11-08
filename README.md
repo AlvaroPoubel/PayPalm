@@ -3,7 +3,7 @@
 - [Instalação do PostgreSQL](#instalação-do-postgresql)
 - [Criação do Banco de Dados](#criação-do-banco-de-dados)
 - [Populando o Banco de Dados](#populando-o-banco-de-dados)
-- [Querys de Análise](#Querys-de-análise)
+- [Querys de Análise](#Querys-de-Análise)
 - [Integrantes do Projeto](#integrantes)
 
 # Guia de Instalação e Utilização do Banco de Dados
@@ -30,9 +30,9 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
    - Conecte-se ao PostgreSQL usando o usuário e senha configurados durante a instalação.
 
 5. **Crie o Banco de Dados**:
-   - Execute o seguinte comando SQL para criar um novo banco de dados chamado "MUDAR123":
+   - Execute o seguinte comando SQL para criar um novo banco de dados chamado "PayPalm":
      ```sql
-     CREATE DATABASE MUDAR123;
+     CREATE DATABASE PayPalm;
      ```
 
 6. **Seleção do Banco de Dados**:
@@ -60,19 +60,30 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
 9. **Realize Consultas SQL**:
    - Utilize o `psql`, pgAdmin ou sua ferramenta SQL favorita para executar consultas de análise no banco de dados. Aqui estão alguns exemplos:
 
-   - Consulta 1: Recupere todos os usuários e seus apelidos.
+   - Consulta 1: Quantos usuarios brasileiros possuem 500 reais ou mais na conta.
      ```sql
-     SELECT id_usuario, apelido FROM usuario;
+     select nome_completo, saldo, moeda from cadastro
+      join usuario using(id_usuario)
+      join saldo using(id_usuario)
+      where moeda = 'Real' and saldo >= 500;
      ```
 
-   - Consulta 2: Calcule o saldo médio de todos os usuários.
+   - Consulta 2: Quantos Usuarios com carteira em Real nós temos.
      ```sql
-     SELECT AVG(saldo) AS saldo_medio FROM saldo;
+     select moeda,count(moeda) from cadastro
+      join usuario using(id_usuario)
+      join saldo using(id_usuario)
+      where moeda = 'Real'
+      group by moeda;
      ```
 
-   - Consulta 3: Obtenha informações sobre transações de pagamento pendentes.
+   - Consulta 3: Somando todos os usuarios com saldo em Real, qual valor total temos.
      ```sql
-     SELECT * FROM transacao WHERE status = 'pendente';
+     select moeda, sum(saldo) from cadastro
+         join usuario using(id_usuario)
+         join saldo using(id_usuario)
+         where moeda = 'Real'
+         group by moeda;
      ```
 
 10. **Explore e Analise**:
