@@ -3,7 +3,7 @@
 - [Instalação do PostgreSQL](#instalação-do-postgresql)
 - [Criação do Banco de Dados](#criação-do-banco-de-dados)
 - [Populando o Banco de Dados](#populando-o-banco-de-dados)
-- [Consultas de Análise](#consultas-de-análise)
+- [Consultas de Análise](#Querys-de-análise)
 - [Integrantes do Projeto](#integrantes)
 
 # Guia de Instalação e Utilização do Banco de Dados
@@ -55,7 +55,7 @@ Este guia fornece instruções detalhadas sobre como instalar o Sistema de Geren
 8. **Verificação dos Dados**:
    - Confirme se os dados foram inseridos corretamente verificando algumas entradas nas tabelas.
 
-## Consultas de Análise
+## Querys de Análise
 
 9. **Realize Consultas SQL**:
    - Utilize o `psql`, pgAdmin ou sua ferramenta SQL favorita para executar consultas de análise no banco de dados. Aqui estão alguns exemplos:
