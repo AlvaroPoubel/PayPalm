@@ -171,3 +171,40 @@ ALTER TABLE IF EXISTS public.conta_bancaria
     NOT VALID;
 
 END;
+
+
+
+-- Função para realizar transação
+CREATE OR REPLACE FUNCTION realizar_transacao(
+    remetente_id_usuario INT,
+    destinatario_id_usuario INT,
+    valor_transferencia NUMERIC
+) RETURNS VOID AS $$
+
+DECLARE
+    saldo_remetente NUMERIC;
+    saldo_destinatario NUMERIC;
+BEGIN
+    -- Iniciar a transação
+  
+    
+    -- Obter os saldos atuais do remetente e destinatário
+    SELECT saldo INTO saldo_remetente FROM saldo WHERE id_usuario = remetente_id_usuario FOR UPDATE;
+    SELECT saldo INTO saldo_destinatario FROM saldo WHERE id_usuario = destinatario_id_usuario FOR UPDATE;
+
+    -- Verificar se o remetente tem saldo suficiente
+    IF saldo_remetente >= valor_transferencia THEN
+        -- Atualizar os saldos
+        UPDATE saldo SET saldo = saldo - valor_transferencia WHERE id_usuario = remetente_id_usuario;
+        UPDATE saldo SET saldo = saldo + valor_transferencia WHERE id_usuario = destinatario_id_usuario;
+
+        -- Registrar a transação na tabela 'transacao'
+        INSERT INTO transacao (id_remetente, id_destinatario, valor, last_update, status, metodo_pagamento)
+        VALUES (remetente_id_usuario, destinatario_id_usuario, valor_transferencia, NOW(), 'Concluída', 'Transferência');
+        
+       
+  
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
