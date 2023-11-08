@@ -208,3 +208,20 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Criar uma função que verifica se a transação é entre o mesmo usuário
+CREATE OR REPLACE FUNCTION verificar_transacao_mesmo_usuario()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.id_remetente = NEW.id_destinatario THEN
+        RAISE EXCEPTION 'Não é permitido fazer transações para si mesmo';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Criar a trigger que chama a função antes de inserir uma nova transação
+CREATE TRIGGER evitar_transacao_mesmo_usuario
+BEFORE INSERT ON transacao
+FOR EACH ROW
+EXECUTE FUNCTION verificar_transacao_mesmo_usuario();
+
