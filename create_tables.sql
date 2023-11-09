@@ -225,3 +225,13 @@ BEFORE INSERT ON transacao
 FOR EACH ROW
 EXECUTE FUNCTION verificar_transacao_mesmo_usuario();
 
+
+-- Criando views
+-- Essa view irá retornar o valor total que o banco possui em Dólar
+create or replace view total_dolar
+ as
+select moeda, sum(saldo) from cadastro
+    join usuario using(id_usuario)
+    join saldo using(id_usuario)
+    where moeda = 'Dólar'
+    group by moeda;
