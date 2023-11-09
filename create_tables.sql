@@ -245,3 +245,12 @@ join usuario using(id_usuario)  -- Realiza uma junção com a tabela "usuario" u
 join saldo using(id_usuario)    -- Realiza outra junção com a tabela "saldo" usando a mesma chave
 where moeda = 'Real'            -- Filtra para incluir apenas registros com moeda igual a 'Real'
 group by moeda;                 -- Agrupa os resultados pela coluna "moeda"
+
+-- Cria ou substitui uma view chamada "usuario_real" para visualizar a quantidade total de usuarios que tem o saldo em 'Real'.
+ create or replace view usuarios_real
+ as
+ select moeda,count(moeda) from cadastro
+ join usuario using(id_usuario)
+ join saldo using(id_usuario)
+ where moeda = 'Real'
+ group by moeda;
