@@ -226,8 +226,7 @@ FOR EACH ROW
 EXECUTE FUNCTION verificar_transacao_mesmo_usuario();
 
 
--- Criando views
--- Essa view irá retornar o valor total que o banco possui em Dólar
+-- Cria ou substitui uma view chamada "total_dolar" para calcular a soma dos saldos da moeda 'Dólar'.
 create or replace view total_dolar
  as
 select moeda, sum(saldo) from cadastro
@@ -235,3 +234,14 @@ select moeda, sum(saldo) from cadastro
     join saldo using(id_usuario)
     where moeda = 'Dólar'
     group by moeda;
+
+
+-- Cria ou substitui uma view chamada "total_real" para calcular a soma dos saldos da moeda 'Real'.
+create or replace view total_real
+as
+select moeda, sum(saldo)  -- Seleciona a coluna "moeda" e a soma da coluna "saldo"
+from cadastro
+join usuario using(id_usuario)  -- Realiza uma junção com a tabela "usuario" usando "id_usuario" como chave
+join saldo using(id_usuario)    -- Realiza outra junção com a tabela "saldo" usando a mesma chave
+where moeda = 'Real'            -- Filtra para incluir apenas registros com moeda igual a 'Real'
+group by moeda;                 -- Agrupa os resultados pela coluna "moeda"
