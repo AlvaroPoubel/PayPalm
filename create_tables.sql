@@ -254,3 +254,17 @@ group by moeda;                 -- Agrupa os resultados pela coluna "moeda"
  join saldo using(id_usuario)
  where moeda = 'Real'
  group by moeda;
+
+
+
+-- Criando ou substituindo a view usuarios_saldo_500
+create or replace view usuarios_saldo_500 
+as
+-- Selecionando nome completo, saldo e moeda da tabela cadastro
+select nome_completo, saldo, moeda from cadastro
+-- Realizando junção com a tabela usuario usando a coluna id_usuario
+join usuario using(id_usuario)
+-- Realizando junção com a tabela saldo usando a coluna id_usuario
+join saldo using(id_usuario)
+-- Filtrando os resultados para incluir apenas moeda 'Real' e saldo maior ou igual a 500
+where moeda = 'Real' and saldo >= 500;
